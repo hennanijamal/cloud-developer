@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthLoginComponent } from './auth-login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { IonicModule } from '@ionic/angular';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AuthLoginPage', () => {
   let component: AuthLoginComponent;
@@ -10,7 +13,13 @@ describe('AuthLoginPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
+      imports: [
+        FormsModule, 
+        ReactiveFormsModule,
+        HttpClientModule,
+        IonicModule,
+        RouterTestingModule
+      ],
       declarations: [ AuthLoginComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
