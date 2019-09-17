@@ -2,6 +2,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FeedUploadComponent } from './feed-upload.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FeedUploadPage', () => {
   let component: FeedUploadComponent;
@@ -9,6 +12,12 @@ describe('FeedUploadPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports : [ 
+        FormsModule,
+        ReactiveFormsModule,
+        IonicModule,
+        HttpClientModule
+      ],
       declarations: [ FeedUploadComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
