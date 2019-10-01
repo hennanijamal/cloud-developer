@@ -1,0 +1,164 @@
+{
+  "kubeone_api": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "endpoint": "string"
+      }
+    ],
+    "value": {
+      "endpoint": "udagram-api-lb-0306581dc31db931.elb.us-west-2.amazonaws.com"
+    }
+  },
+  "kubeone_hosts": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "control_plane": [
+          "object",
+          {
+            "cloud_provider": "string",
+            "cluster_name": "string",
+            "hostnames": [
+              "tuple",
+              [
+                "string",
+                "string",
+                "string"
+              ]
+            ],
+            "private_address": [
+              "tuple",
+              [
+                "string",
+                "string",
+                "string"
+              ]
+            ],
+            "public_address": [
+              "tuple",
+              [
+                "string",
+                "string",
+                "string"
+              ]
+            ],
+            "ssh_agent_socket": "string",
+            "ssh_port": "number",
+            "ssh_private_key_file": "string",
+            "ssh_user": "string"
+          }
+        ]
+      }
+    ],
+    "value": {
+      "control_plane": {
+        "cloud_provider": "aws",
+        "cluster_name": "udagram",
+        "hostnames": [
+          "ip-172-31-40-52.us-west-2.compute.internal",
+          "ip-172-31-28-207.us-west-2.compute.internal",
+          "ip-172-31-6-59.us-west-2.compute.internal"
+        ],
+        "private_address": [
+          "172.31.40.52",
+          "172.31.28.207",
+          "172.31.6.59"
+        ],
+        "public_address": [
+          "35.160.56.147",
+          "34.214.139.68",
+          "18.237.162.143"
+        ],
+        "ssh_agent_socket": "env:SSH_AUTH_SOCK",
+        "ssh_port": 22,
+        "ssh_private_key_file": "",
+        "ssh_user": "ubuntu"
+      }
+    }
+  },
+  "kubeone_workers": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "udagram-pool1": [
+          "object",
+          {
+            "providerSpec": [
+              "object",
+              {
+                "cloudProviderSpec": [
+                  "object",
+                  {
+                    "ami": "string",
+                    "availabilityZone": "string",
+                    "diskIops": "number",
+                    "diskSize": "number",
+                    "diskType": "string",
+                    "instanceProfile": "string",
+                    "instanceType": "string",
+                    "region": "string",
+                    "securityGroupIDs": [
+                      "tuple",
+                      [
+                        "string"
+                      ]
+                    ],
+                    "subnetId": "string",
+                    "tags": [
+                      "object",
+                      {
+                        "udagram-workers": "string"
+                      }
+                    ],
+                    "vpcId": "string"
+                  }
+                ],
+                "operatingSystem": "string",
+                "operatingSystemSpec": [
+                  "object",
+                  {
+                    "distUpgradeOnBoot": "bool"
+                  }
+                ]
+              }
+            ],
+            "replicas": "number"
+          }
+        ]
+      }
+    ],
+    "value": {
+      "udagram-pool1": {
+        "providerSpec": {
+          "cloudProviderSpec": {
+            "ami": "ami-08edb3f0e9f3f2557",
+            "availabilityZone": "us-west-2a",
+            "diskIops": 500,
+            "diskSize": 50,
+            "diskType": "gp2",
+            "instanceProfile": "udagram-host",
+            "instanceType": "t3.medium",
+            "region": "us-west-2",
+            "securityGroupIDs": [
+              "sg-09f115b7ac3a3f5e4"
+            ],
+            "subnetId": "subnet-c395cb8a",
+            "tags": {
+              "udagram-workers": "pool1"
+            },
+            "vpcId": "vpc-8fde34e9"
+          },
+          "operatingSystem": "ubuntu",
+          "operatingSystemSpec": {
+            "distUpgradeOnBoot": false
+          }
+        },
+        "replicas": 1
+      }
+    }
+  }
+}
