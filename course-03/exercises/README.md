@@ -80,3 +80,20 @@ Install and setup kubeone and terraform
 - `kubeclt -f apply backend-user-deployment.yaml`
 - `kubeclt -f apply frontend-deployment.yaml`
 - `kubeclt -f apply reserveproxy-deployment.yaml`
+
+### Adding configurations
+- `kubectl apply aws-secret.yaml`
+- `kubectl apply env-configmap.yaml`
+- `kubectl apply env-secret.yaml`
+
+### Run Kubernetes application on local machine
+
+- Verify pods: kubectl get pod
+- Run reserveproxy server: `pod forward pod/reserveproxy-xxxxx-xx 8080:8080`
+- Run frontend: `pod/frontend-xxxxxx-xxxx 8100:8100`
+
+### Deploy services on Kubernetes
+- `kubeclt -f apply backend-feed-service.yaml`
+- `kubeclt -f apply backend-user-service.yaml`
+- `kubeclt -f apply frontend-service.yaml`
+- `kubeclt -f apply reserveproxy-service.yaml`
