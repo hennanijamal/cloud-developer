@@ -4,7 +4,7 @@ data:
   AWS_BUCKET: udagram-image-dev
   AWS_PROFILE: deafult
   AWS_REGION: us-west-2
-  JWT_SECRET: secret
+  JWT_SECRET: hello
   POSTGRESS_DB: udagramdbdev
   POSTGRESS_HOST: udagramdbdev.c0low1hk4taw.us-west-2.rds.amazonaws.com
   URL: http://localhost:8100  
