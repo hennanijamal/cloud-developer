@@ -12,7 +12,6 @@ limitations under the License.
 */
 
 provider "aws" {
-  profile = "default"
   region = var.aws_region
 }
 
@@ -72,6 +71,10 @@ locals {
 resource "aws_default_vpc" "default" {
 }
 
+resource "aws_key_pair" "deployer" {
+  key_name   = "${var.cluster_name}-deployer-key"
+  public_key = file(var.ssh_public_key_file)
+}
 
 resource "aws_security_group" "common" {
   name        = "${var.cluster_name}-common"
@@ -197,19 +200,17 @@ resource "aws_lb_listener" "control_plane_api" {
 resource "aws_lb_target_group_attachment" "control_plane_api" {
   count            = 3
   target_group_arn = aws_lb_target_group.control_plane_api.arn
-  target_id        = element(aws_instance.control_plane.*.id, count.index)
+  target_id        = element(aws_instance.udagram.*.id, count.index)
   port             = 6443
 }
 
-resource "aws_instance" "control_plane" {
+resource "aws_instance" "udagram" {
   count = 3
-
   tags = map("Name", "${var.cluster_name}-control_plane-${count.index + 1}", local.kube_cluster_tag, "shared")
-
   instance_type          = var.control_plane_type
   iam_instance_profile   = aws_iam_instance_profile.profile.name
   ami                    = local.ami
-  # key_name               = aws_key_pair.deployer.key_name
+  key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.common.id, aws_security_group.control_plane.id]
   availability_zone      = data.aws_availability_zones.available.names[count.index % local.az_count]
   subnet_id              = local.all_subnets[count.index % local.az_count]

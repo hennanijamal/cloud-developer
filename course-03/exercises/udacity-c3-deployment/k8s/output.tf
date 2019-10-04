@@ -26,9 +26,9 @@ output "kubeone_hosts" {
     control_plane = {
       cluster_name         = var.cluster_name
       cloud_provider       = "aws"
-      private_address      = aws_instance.control_plane.*.private_ip
-      public_address       = aws_instance.control_plane.*.public_ip
-      hostnames            = aws_instance.control_plane.*.private_dns
+      private_address      = aws_instance.udagram.*.private_ip
+      public_address       = aws_instance.udagram.*.public_ip
+      hostnames            = aws_instance.udagram.*.private_dns
       ssh_agent_socket     = var.ssh_agent_socket
       ssh_port             = var.ssh_port
       ssh_private_key_file = var.ssh_private_key_file
@@ -46,7 +46,7 @@ output "kubeone_workers" {
     "${var.cluster_name}-pool1" = {
       replicas = 1
       providerSpec = {
-        # sshPublicKeys   = [aws_key_pair.deployer.public_key]
+        sshPublicKeys   = [aws_key_pair.deployer.public_key]
         operatingSystem = var.worker_os
         operatingSystemSpec = {
           distUpgradeOnBoot = false

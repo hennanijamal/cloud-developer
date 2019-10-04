@@ -14,3 +14,11 @@ I get the following error below when running the command `kubeone install config
 ![error](images/error.png)
 
 With this I have not been able to proceed with the kubenetes deployment and will like some more explaination of how this process is done since I did not get as much information from the lessons.
+
+
+### Solutions
+
+- I used the default kubeone aws configs from ...
+- I created an ssh public key with the command ssh-keygen 
+- i saved the key in ~/.ssh/ 
+- now i ran the terraform commands

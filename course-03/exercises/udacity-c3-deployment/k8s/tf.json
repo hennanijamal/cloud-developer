@@ -8,7 +8,7 @@
       }
     ],
     "value": {
-      "endpoint": "udagram-api-lb-0306581dc31db931.elb.us-west-2.amazonaws.com"
+      "endpoint": "udagram-api-lb-63667b908a7dbf34.elb.us-west-2.amazonaws.com"
     }
   },
   "kubeone_hosts": {
@@ -58,19 +58,19 @@
         "cloud_provider": "aws",
         "cluster_name": "udagram",
         "hostnames": [
-          "ip-172-31-40-52.us-west-2.compute.internal",
-          "ip-172-31-28-207.us-west-2.compute.internal",
-          "ip-172-31-6-59.us-west-2.compute.internal"
+          "ip-172-31-47-221.us-west-2.compute.internal",
+          "ip-172-31-25-107.us-west-2.compute.internal",
+          "ip-172-31-11-142.us-west-2.compute.internal"
         ],
         "private_address": [
-          "172.31.40.52",
-          "172.31.28.207",
-          "172.31.6.59"
+          "172.31.47.221",
+          "172.31.25.107",
+          "172.31.11.142"
         ],
         "public_address": [
-          "35.160.56.147",
-          "34.214.139.68",
-          "18.237.162.143"
+          "34.220.224.255",
+          "54.185.32.209",
+          "34.212.188.33"
         ],
         "ssh_agent_socket": "env:SSH_AUTH_SOCK",
         "ssh_port": 22,
@@ -123,6 +123,12 @@
                   {
                     "distUpgradeOnBoot": "bool"
                   }
+                ],
+                "sshPublicKeys": [
+                  "tuple",
+                  [
+                    "string"
+                  ]
                 ]
               }
             ],
@@ -135,7 +141,7 @@
       "udagram-pool1": {
         "providerSpec": {
           "cloudProviderSpec": {
-            "ami": "ami-08edb3f0e9f3f2557",
+            "ami": "ami-06d51e91cea0dac8d",
             "availabilityZone": "us-west-2a",
             "diskIops": 500,
             "diskSize": 50,
@@ -144,7 +150,7 @@
             "instanceType": "t3.medium",
             "region": "us-west-2",
             "securityGroupIDs": [
-              "sg-09f115b7ac3a3f5e4"
+              "sg-0a000ea3db3e775b5"
             ],
             "subnetId": "subnet-c395cb8a",
             "tags": {
@@ -155,7 +161,10 @@
           "operatingSystem": "ubuntu",
           "operatingSystemSpec": {
             "distUpgradeOnBoot": false
-          }
+          },
+          "sshPublicKeys": [
+            "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3fCQzjIkBJ44ydpqziOj9JAPj6bkRDH07WPht46O7J5uuEl6tTLdDe+z7f/tPAIJL1rR/O46RE1UeLdSPFeAgBE8nhCN8+fPhcE0DuGKpE9gZLSs0Z00koQNuz25RUyhw/T0FYoA++2m5C8zVhTacLxSoV9OENZ9fEwMbL+HwpEcemOtv3e0J9yCJxFqQ3yMXIUYyvhzChNy4NPeUCEfBGYjtbrW9jCWBTBzWMfb3xhAsm3i2wZ0ExuVwQM1jE/JnZ+kOtTZTQWpEBnvHN1tOKFc9FcBAWo/zS/nQ+hq39FBI52TFYvTIfxeqvAkDYBTAWxOOjeXY4xdJnAfGen9n coreman@coreman-Predator-G3-710"
+          ]
         },
         "replicas": 1
       }
