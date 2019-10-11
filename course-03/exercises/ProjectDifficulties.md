@@ -20,5 +20,5 @@ With this I have not been able to proceed with the kubenetes deployment and will
 
 - I used the default kubeone aws configs from ...
 - I created an ssh public key with the command ssh-keygen 
-- i saved the key in ~/.ssh/ 
+- I saved the key in ~/.ssh/ 
 - now i ran the terraform commands

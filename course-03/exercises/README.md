@@ -76,24 +76,24 @@ Install and setup kubeone and terraform
 - export the KUBECONFIG variable environment variable: `export KUBECONFIG=$PWD/<cluster_name>-kubeconfig` 
 
 ### Deploying to kuberbetes
-- `kubeclt apply -f backend-feed-deployment.yaml`
-- `kubeclt apply -f backend-user-deployment.yaml`
-- `kubeclt apply -f frontend-deployment.yaml`
-- `kubeclt apply -f reserveproxy-deployment.yaml`
+- `kubectl apply -f backend-feed-deployment.yaml`
+- `kubectl apply -f backend-user-deployment.yaml`
+- `kubectl apply -f frontend-deployment.yaml`
+- `kubectl apply -f reverseproxy-deployment.yaml`
 
 ### Adding configurations
-- `kubectl apply aws-secret.yaml`
-- `kubectl apply env-configmap.yaml`
-- `kubectl apply env-secret.yaml`
+- `kubectl apply -f aws-secret.yaml`
+- `kubectl apply -f env-configmap.yaml`
+- `kubectl apply -f env-secret.yaml`
 
 ### Run Kubernetes application on local machine
 
 - Verify pods: kubectl get pod
-- Run reserveproxy server: `pod forward pod/reserveproxy-xxxxx-xx 8080:8080`
+- Run reverseproxy server: `kubectl port-forward pod/reverseproxy-xxxxx-xx 8080:8080`
 - Run frontend: `pod/frontend-xxxxxx-xxxx 8100:8100`
 
 ### Deploy services on Kubernetes
-- `kubeclt apply -f backend-feed-service.yaml`
-- `kubeclt apply -f backend-user-service.yaml`
-- `kubeclt apply -f frontend-service.yaml`
-- `kubeclt apply -f reserveproxy-service.yaml`
+- `kubectl apply -f backend-feed-service.yaml`
+- `kubectl apply -f backend-user-service.yaml`
+- `kubectl apply -f frontend-service.yaml`
+- `kubectl apply -f reverseproxy-service.yaml`
