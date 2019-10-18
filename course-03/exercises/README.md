@@ -1,5 +1,46 @@
 # Refactor Udagram app into Microservices and Deploy
 
+
+
+
+=============================================================================================================================
+
+
+## Submission Note
+
+Thanks to the previous Reviewer the tips given it has helped to finish up the project.
+
+Here is a screensgot of the application on Amazon Cloudwatch:
+
+
+
+
+![cloudwatch](images/cloudwatch2.png)
+
+
+
+
+
+
+===============================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 My completed project repo is founf in the link https://github.com/hennanijamal/cloud-developer/tree/06-ci/course-03/exercises
 
 ## How to Run Project
