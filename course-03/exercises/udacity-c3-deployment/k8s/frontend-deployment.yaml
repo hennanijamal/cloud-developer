@@ -13,7 +13,7 @@ spec:
         api: external        
     spec:
       containers:
-      - image: jamalhen/udacity-frontend:local
+      - image: scheele/udacity-frontend:local
         name: frontend
         imagePullPolicy: Always          
         ports:
